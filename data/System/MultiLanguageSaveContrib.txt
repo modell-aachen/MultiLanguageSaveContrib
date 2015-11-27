@@ -1,0 +1,27 @@
+---+!! !MultiLanguageSaveContrib
+<!--
+   * Set SHORTDESCRIPTION = %$SHORTDESCRIPTION%
+-->
+%SHORTDESCRIPTION%
+
+%TOC%
+
+---++ Usage
+
+Set the form in your =EDIT_TEMPLATE= to use =saveml= instead of =save= and add a parameter =languages= with a comma-separated list of languages you want to link. An =AUTOINC000= will resolve to the highest free number of all linked languages.
+
+%$INSTALL_INSTRUCTIONS%
+
+---++ Info
+
+|  Author: | Modell Aachen GmbH |
+|  Copyright: | &copy; 2015, Modell Aachen GmbH |
+|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+|  Release: | %$RELEASE% |
+|  Version: | %$VERSION% |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  Dependencies: | %$DEPENDENCIES% |
+|  Home | http://www.modell-aachen.de |
+|  Feedback | support(at)modell-aachen(dot)de |
+
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. -->

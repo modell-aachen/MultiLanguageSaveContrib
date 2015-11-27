@@ -1,0 +1,5 @@
+# Release manifest for MultiLanguageSaveContrib
+bin/saveml 0555
+data/System/MultiLanguageSaveContrib.txt 0664
+lib/Foswiki/Contrib/MultiLanguageSaveContrib.pm 0444
+lib/Foswiki/Contrib/MultiLanguageSaveContrib/Config.spec 0444
