@@ -16,10 +16,11 @@ sub saveml {
 
     my $query = $session->{request};
 
-    my ( $web, $topic ) =
+    my ( $web, $originalTopic ) =
       $session->normalizeWebTopicName( $session->{webName},
         $session->{topicName} );
 
+    my $topic = $originalTopic;
     if($topic =~ m#(.*)(AUTOINC\d+)(.*)-([A-Z]{2}$)#) {
         my ($pre, $auto, $suff, $lang) = ($1, $2, $3, $4);
 
@@ -37,6 +38,14 @@ sub saveml {
         }
 
         $topic = "$pre$min$suff-$lang";
+
+        # Replace references to original topic name with resolved topic.
+        # Otherwise /pub/Web/...AUTOINC... will not be picked up by WysiwygPlugin.
+        # XXX Hopefully no-one will talk about AUTOINC topics.
+        my $text = $query->param('text');
+        if(defined $text && $text =~ s#\Q$originalTopic\E#$topic#g) {
+            $query->param('text', $text);
+        }
 
         $session->{topicName} = $topic;
         $query->param('topic', $topic) if $query->param('topic');
